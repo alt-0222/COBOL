@@ -5,7 +5,7 @@ Sortmerg is a simple COBOL application which reads input from three files, merge
 
 ## Source Code
 
-The source code is contained in a single file, `sortmerg.cbl`, which is written in COBOL. It consists of two main operations:
+The source code is contained in a single file, `sort.cbl`, which is written in COBOL. It consists of two main operations:
 
 1. Read data from three files and merge them into one in-memory list
 2. Sort the list and write the result to an output file
