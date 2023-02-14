@@ -1,4 +1,4 @@
-# Sortmerg
+# SORTMERG
 *For demo purposes. Not suitable for production use*
 
 Sortmerg is a simple COBOL application which reads input from three files, merges their contents, and writes an output containing one sorted list. It is designed to run on a z/OS mainframe.
