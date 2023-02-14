@@ -6,7 +6,6 @@
       *
       * For demostration only
       ******************************************************************
-
       *-----------------------
        IDENTIFICATION DIVISION.
       *-----------------------
@@ -17,12 +16,12 @@
       *--------------------
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
-           SELECT CARLIST-B ASSIGN TO CARELEC.
-           SELECT CARLIST-M ASSIGN TO CARHYB.
-           SELECT CARLIST-J ASSIGN TO CARSUV.
+           SELECT CARLIST-E ASSIGN TO AUTOELE.
+           SELECT CARLIST-H ASSIGN TO AUTOHYB.
+           SELECT CARLIST-S ASSIGN TO AUTOSUV.
            SELECT CARLIST-WORK ASSIGN TO WRK.
-           SELECT CARLIST-MERGE ASSIGN TO CARLSTMRG.
-           SELECT CARLIST-SORTED ASSIGN TO CARSORTED.
+           SELECT CARLIST-MERGE ASSIGN TO LSTMRG.
+           SELECT CARLIST-SORTED ASSIGN TO SORTED.
       *-------------
        DATA DIVISION.
       *-------------
@@ -45,19 +44,19 @@
            05  CAR-PRICE-S     PIC $$,$$$,$$9.99.
            05  FILLER PIC X(17).
       *
-       FD  CARLIST-B RECORDING MODE F.
+       FD  CARLIST-E RECORDING MODE F.
        01  ELEC-FIELDS.
            05  CAR-NAME-B      PIC X(50).
            05  CAR-PRICE-B     PIC $$,$$$,$$9.99.
            05  FILLER PIC X(17).
       *
-       FD  CARLIST-M RECORDING MODE F.
+       FD  CARLIST-H RECORDING MODE F.
        01  HYB-FIELDS.
            05  CAR-NAME-M       PIC X(50).
            05  CAR-PRICE-M     PIC $$,$$$,$$9.99.
            05  FILLER PIC X(17).
       *
-       FD  CARLIST-J RECORDING MODE F.
+       FD  CARLIST-S RECORDING MODE F.
        01  SUV-FIELDS.
            05  CAR-NAME-I       PIC X(50).
            05  CAR-PRICE-I     PIC $$,$$$,$$9.99.
@@ -70,7 +69,7 @@
        PROCESS-RECORDS.
            DISPLAY "MERGING FILES"
            MERGE CARLIST-WORK ON ASCENDING KEY CAR-NAME-W IN CAR-REC
-           USING CARLIST-B, CARLIST-M, CARLIST-J GIVING CARLIST-MERGE
+           USING CARLIST-E, CARLIST-H, CARLIST-S GIVING CARLIST-MERGE
 
            DISPLAY "SORTING RECORDS".
            SORT CARLIST-WORK ON ASCENDING KEY CAR-PRICE-W IN CAR-REC
